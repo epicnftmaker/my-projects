@@ -38,7 +38,7 @@ while option != 0:
         modify = input("what do you want the name to be of the webhook")
         webhookurl.modify(name=modify)
     while True:
-        webhookurl.send('https://discord.gg/projectwd powered by epicnftmaker ' + message)
+        webhookurl.send('https://discord.gg/psxbet powered by epicnftmaker ' + message)
         print(Fore.GREEN + "Sent.")
     
          
