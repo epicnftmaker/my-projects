@@ -1,5 +1,5 @@
 """
-made by zenci#0192
+made by epicnftmaker
 """
 print("""
                                                                                                  
@@ -10,8 +10,8 @@ print("""
 | | | || |    | |_| |  | |( (/ / ( (___ | |__   ( (_| || | | |
 | ||_/ |_|     \___/  _| | \____) \____) \___)   \____| \____|
 |_|                  (__/                                                          
-                                    Made by zenci#0192
-                                  Github: huryyryrs
+                                    Made by epicnftmaker
+                                  Github: epicnftmaker
 """)
 
 from dhooks import Webhook
@@ -34,12 +34,12 @@ while option != 0:
         print("deleted")
         exit()
     elif option == 2:
-        message = input("what do you want to spam nigga: ")
-        webhookurl = Webhook(input("enter webhook nigga its not hard: "))   
+        message = input("what do you want to spam : ")
+        webhookurl = Webhook(input("enter webhook  its not hard: "))   
         modify = input("what do you want the name to be of the webhook")
         webhookurl.modify(name=modify)
     while True:
-        webhookurl.send('https://discord.gg/projectwd powered by zenci#0192 ' + message)
+        webhookurl.send('https://discord.gg/projectwd powered by epicnftmaker ' + message)
         print(Fore.GREEN + "Sent.")
     
          
