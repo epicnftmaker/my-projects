@@ -152,27 +152,27 @@ async def removerole(ctx, role: discord.Role, user: discord.Member):
 @Client.command()
 async def hack(ctx):
     await ctx.send('hacking starting')
-    await ctx.send('█▒▒▒▒▒▒▒▒▒ 10%. hacking project wd stealing the source')
+    await ctx.send('█▒▒▒▒▒▒▒▒▒ 10%. hacking psxbet stealing the source')
     time.sleep(2)
     await ctx.send('██▒▒▒▒▒▒▒▒ 20%. hacking walker')
     time.sleep(2)
     await ctx.send('███▒▒▒▒▒▒▒ 30%. sending bombs to walkers location')
     time.sleep(2)
-    await ctx.send('████▒▒▒▒▒▒ 40%. hacking zenci ')
+    await ctx.send('████▒▒▒▒▒▒ 40%. hacking epicnftmaker ')
     time.sleep(2)
-    await ctx.send('█████▒▒▒▒▒ 50%. banning zenci')
+    await ctx.send('█████▒▒▒▒▒ 50%. banning epicnftmaker')
     time.sleep(2)
-    await ctx.send('██████▒▒▒▒ 60%. override override unbanning zenci ')
+    await ctx.send('██████▒▒▒▒ 60%. override override unbanning epicnftmaker ')
     time.sleep(2)
-    await ctx.send('███████▒▒▒ 70%. found zenci address')
+    await ctx.send('███████▒▒▒ 70%. found epicnftmaker address')
     time.sleep(2)
     await ctx.send('████████▒▒ 80%. he lives at 12 pakistan road')
     time.sleep(2)
     await ctx.send('█████████▒ 90%. hacking ambatakum')
     time.sleep(2)
-    await ctx.send('██████████ 100%. giving zenci ballz ')
+    await ctx.send('██████████ 100%. giving epicnftmaker ballz ')
     time.sleep(2)
-    await ctx.send('success zenci has mod :cool:')
+    await ctx.send('success epicnftmaker has mod :cool:')
 
 
 
@@ -184,7 +184,7 @@ async def hop(ctx):
 
 
 @Client.command()
-async def zenci(ctx):
-    await ctx.send('zenci is the hottest man in the world is daddy best coder made this bot easy')
+async def epicnftmaker(ctx):
+    await ctx.send('epicnftmaker is the hottest man in the world is daddy best coder made this bot easy')
 TOKEN = "put the token here dawg"
 Client.run(TOKEN)
