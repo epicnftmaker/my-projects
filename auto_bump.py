@@ -10,9 +10,11 @@ bot = commands.Bot(commands_prefix='!', self_bot=True)
 
 
 
+
+
 @bot.command()
 async def autobump(ctx):
-    channel = bot.fetch_channel()
+    channel = bot.fetch_channel(put your bump channel id here)
     for _ in range(1000000000000000000000000000000):        
         async for scmd in channel.slash_commands():
             if scmd.name == "bump" and scmd.application.bot.name == "DISBOARD":
