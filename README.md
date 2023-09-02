@@ -8,3 +8,6 @@ tbh most of them are just putting a discord user token or a discord bot token yo
 
 
 for the webhook spammer its easy to use fr
+
+
+just download requirements.bat and you will be able to run all of my projects
