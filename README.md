@@ -9,4 +9,14 @@ tbh most of them are just putting a discord user token or a discord bot token yo
 
 for the webhook spammer its easy to use fr
 
+for the Token brute forcer you need these libarys
 
+```
+pip install base64
+pip install threading
+pip install random
+pip install string
+pip install requests
+pip install time
+pip install colorama
+```
