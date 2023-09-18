@@ -47,11 +47,10 @@ bot = commands.Bot(command_prefix='!', self_bot=True)
 
 bot.remove_command('help')
 
-openai.api_key = "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"
+openai.api_key = "yes"
 
 api_key = 'api key for the get_image command imagebun is the website'
 
-idd = '1075912256333807666'
 
 @bot.command()
 async def slot(ctx):
