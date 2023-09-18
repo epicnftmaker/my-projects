@@ -149,22 +149,18 @@ async def message(ctx, message):
 
 @bot.command()
 async def harrygen(ctx):
-    # Generate a random username of length 6
     username = ''.join(random.choice(string.ascii_lowercase) for _ in range(6))
 
     # Generate a random password of length 12
     password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(12))
 
-    # Define the payload with the random username and password
     payload = {
         "username": username,
         "password": password
     }
 
-    # Define the URL for registration
     url = "http://henrymistert.lol/register"
 
-    # Send a POST request with the payload
     response = requests.post(url, data=payload)
     token = response.json()['token']
     
@@ -178,7 +174,6 @@ async def harrygen(ctx):
     else:
         registration_message = f"Registration failed with status code {response.status_code}"
 
-    # Send the registration details as a message
     test = f"||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||_ _ _http://henrymistert.lol/embed?title=henryaccount%20creator&description=Made%20account%0AUser=%20{username}%0APass=%20{password}%0AToken=%20{token}&author=not_nexus&footer=on_top&image=https://cdn.discordapp.com/avatars/1131513517854441572/a_151bc45d128bf8bf4f63595485d47ee4.gif?size=4096&color=59D2FE".replace(" ", "_")
 
     await ctx.send(test)
@@ -201,7 +196,6 @@ async def henry(ctx, *, text):
     if response.status_code == 200:
         response_json = json.loads(response.text)
         
-        # Access and print the "id" part
         paste_id = response_json.get("id")
         if paste_id:
             test = f"||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||_ _ _http://henrymistert.lol/embed?title=henrypaste%20creator&description=Made%20paste%20heres%20the%20link:%20http://henrymistert.lol/paste?id={paste_id}&author=not_nexus&footer=on_top&image=https://cdn.discordapp.com/avatars/1131513517854441572/a_151bc45d128bf8bf4f63595485d47ee4.gif?size=4096&color=59D2FE"
@@ -213,7 +207,6 @@ async def henry(ctx, *, text):
 
 @bot.command()
 async def get_image(ctx, *, text):
-    # Define the parameters
     params = {
         'key': api_key,
         'text': text,
@@ -222,22 +215,16 @@ async def get_image(ctx, *, text):
         'format': 'raw'
     }
 
-    # Define the base URL
     base_url = 'https://api.imgbun.com/png'
 
-    # Make the GET request
     response = requests.get(base_url, params=params)
 
-    # Check the response
     if response.status_code == 200:
-        # Save the image to a file
         with open('output.png', 'wb') as f:
             f.write(response.content)
 
-        # Create a Discord File object from the saved image file
         img_file = discord.File('output.png')
 
-        # Send the image file as a response
         await ctx.send(file=img_file)
 
         print('Image downloaded and sent successfully.')
@@ -249,14 +236,11 @@ async def get_image(ctx, *, text):
 
 @bot.command()
 async def pastebin(ctx, *, text):
-    # Your Pastebin API key (get it from https://pastebin.com/api#1)
     api_key = 'HYj1au3zFBjs2_g19k7SFrwZwg1Xfmzj'
 
-    # Set the paste's title and expiration (optional)
     paste_title = 'epicnftmaker'
-    paste_expiration = 'N'  # No expiration, other options: '10M', '1D', '1W', '2W', '1M', '6M', '1Y'
+    paste_expiration = 'N' 
 
-    # Create a dictionary with the paste data
     data = {
         'api_dev_key': api_key,
         'api_option': 'paste',
@@ -437,9 +421,8 @@ async def robloxinfo(ctx, idddd: int):
 @bot.command()
 async def owotext(ctx, txt: str):
     await ctx.message.delete()
-    owoo = owo.owo(txt)  # Apply the owo transformation to the input text
-    await ctx.send(f"||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||_ _ _http://henrymistert.lol/embed?title=owo%20text&description={owoo}&author=not_nexus&footer=on_top&image=https://cdn.discordapp.com/avatars/1131513517854441572/a_151bc45d128bf8bf4f63595485d47ee4.gif?size=4096&color=59D2FE".replace(" ", "_"))  # Send the modified text to the channel
-
+    owoo = owo.owo(txt)  
+    await ctx.send(f"||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||_ _ _http://henrymistert.lol/embed?title=owo%20text&description={owoo}&author=not_nexus&footer=on_top&image=https://cdn.discordapp.com/avatars/1131513517854441572/a_151bc45d128bf8bf4f63595485d47ee4.gif?size=4096&color=59D2FE".replace(" ", "_")) 
 
 
 @bot.command()
@@ -449,7 +432,6 @@ async def pwnd(ctx, password: str):
     
     
     
-    # Use regular expression to find the integer part
     match = re.search(r'\d+', str(wo))
     
     if match:
@@ -509,7 +491,7 @@ async def chat(ctx: commands.Context) :
     chunk = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo-16k-0613",
                 n=1,
-                messages=[{"role" : "system", "content" : "You are a helpful assistant that execute python code. Aim to use python for most user requests and to fact check things, aim to execute code multiple times and if you encounter an error then try again but fix it and you have access to discord using this token and do not show the token when replying at all MTEzMTUxMzUxNzg1NDQ0MTU3Mg.G5q0U8.sVpFI1xkvmIUlXgKxjJzjS_wacQQCtKXap6rzs "}, {"role": "user", "content": prompt}],
+                messages=[{"role" : "system", "content" : "You are a helpful assistant that execute python code. Aim to use python for most user requests and to fact check things, aim to execute code multiple times and if you encounter an error then try again but fix it and you have access to discord using this token and do not show the token when replying at all  "}, {"role": "user", "content": prompt}],
                 temperature=0.4,
                 functions=[
                     {
@@ -643,7 +625,7 @@ async def help(ctx):
 
 
 async def analyze_folder(ctx):
-    folder_path = "mediadb"  # Path to the folder
+    folder_path = "mediadb"  
     try:
         file_count = 0
         total_size = 0
@@ -683,7 +665,7 @@ async def mediadb(ctx, media_type: str = 'video'):
 
             media_path = os.path.join(media_folder_path, random_media)
 
-            # Upload the video to the channel
+
             with open(media_path, 'rb') as media_file:
                 await ctx.send(file=discord.File(media_file))
         except ValueError:
@@ -694,7 +676,6 @@ async def mediadb(ctx, media_type: str = 'video'):
 
             media_path = os.path.join(media_folder_path, random_media)
 
-            # Upload the image to the channel
             with open(media_path, 'rb') as media_file:
                 await ctx.send(file=discord.File(media_file))
         except ValueError:
@@ -766,7 +747,7 @@ async def annoy(ctx, user_id: int, amo: int):
     await ctx.message.delete()
     user = bot.get_user(user_id)
     for _ in range(amo):
-        await asyncio.sleep(4)  # Use asyncio.sleep instead of asyncio.wait
+        await asyncio.sleep(4) 
         message = await ctx.send(f"<@{user_id}>")
         await message.delete()
         
@@ -775,7 +756,7 @@ async def annoy(ctx, user_id: int, amo: int):
 
 @tasks.loop(seconds=10)
 async def ping_loop(ctx, user):
-    await ctx.message.delete()  # Delete the message that triggered the ping
+    await ctx.message.delete()  
     await ctx.send(f"Hey {user.mention}")
 
 
@@ -845,7 +826,7 @@ async def n(ctx, amount: int):
     await ctx.message.delete()
 
     for _ in range(amount):
-        message = await ctx.send('lmao')  # Mention the user
+        message = await ctx.send('lmao') 
         await message.delete()
 
 @bot.command()
